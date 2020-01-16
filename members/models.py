@@ -18,7 +18,7 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, username, password, **extra_fields)
 
-    def create_superuser(self, email, username, password, **extra_fields):
+    def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser',True)
 
@@ -27,15 +27,15 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')
 
-        return self._create_user(email, username, password, **extra_fields)
+        return self._create_user(email, '', password, **extra_fields)
 
 
 
 
 class User(AbstractUser):
-    email = models.EmailField(verbose_name='이메일', max_length=255,unique=True)
-    username = models.CharField(verbose_name='이름',max_length=30)
-    password = models.CharField(verbose_name='비밀번호',max_length=50,)
+    email = models.EmailField(verbose_name='e-mail', max_length=255,unique=True)
+    username = models.CharField(verbose_name='Username',max_length=30)
+    password = models.CharField(verbose_name='password',max_length=50,)
 
     objects = UserManager()
 

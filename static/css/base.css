@@ -3,25 +3,50 @@
 *::after {
     box-sizing: border-box;
 }
+html {
+    font-size: 10px;
+}
+body {
+    min-width: 1060px;
+    font-size: 1.8rem;
+    line-height : 1.6;
+    font-family: Roboto, Avenir, sans-serif;
+}
+h1 {
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: top;
+    color: #1a1a1a;
+  }
 
 .header{
-    background: yellow;
+    background : aqua;
+    height: 300px;
 }
-.main{
-    background:lime;
+.container{
+    max-width : 1400px;
+    background : red;
+    margin: 0 auto; /* 높이값 너비값 */
+    padding : 0 20px;
+    position : relative;
 }
-.hero-scetion{
-    background: aqua;
+.logo {
+    position: absolute;
+    top: 0;
+    left : 0;
+}
+.hero-section{
+    background: skyblue;
 }
 .main-content{
-    background:blue;
+    background: pink;
     float : right;
-    width : 70%
+    width : 90%
 }
 .side-content{
-    background : pink;
+    background : yellow;
     float : legt;
-    width : 30%
+    width : 10%
 }
 
 .content-info{
