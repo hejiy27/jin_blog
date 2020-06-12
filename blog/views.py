@@ -1,7 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from blog.models import Post
 
 
-def hello(request):
-    return HttpResponse("<h1>Response 보내기</h2?")
+def Posts_list(request):
+    posts = Post.objects.all()
+
+    return render(request, 'blogs/posts_list.html', context={'posts':posts})

@@ -1,14 +1,28 @@
 {% extends "../blogs/base.html" %}
+
 {% block title %}회원가입 {% endblock %}
+{% block ex %} 회원가입을 해주세요!! {% endblock %}
 
 {% block contents %}
-<div style="padding-left:50px; padding-top:50px;">
-    <h1>Signup</h1>
-    <hr>
+{% if user.is_authenticated %}
+<script type="text/javascript">
+  alert('잘못된 접근입니다. \n 회원가입을 위해서는 로그아웃이 필요합니다.')
+  window.location.href = '/';
+</script>
+{% else %}
+<!--<div style="padding-left:50px; padding-top:50px;">-->
+    <h1> 회원가입 </h1>
     <form action="" method="post">
         {{ user_form.as_p }}
-        {% csrf_token %}
+
+{% csrf_token %}
+<form method="POST" action="" class="sign-up-form">
+  <button type="submit" class="save btn btn-success">회원가입</button>
+  <a href="{% url 'main' %}">
+    <button type="button" class="btn btn-danger">취소</button>
+  </a>
+</form>
         <input class="btn btn-primary" type="submit" value="submit">
     </form>
-</div>
-{% endblock %}
+{% endif %}
+{% endblock contents %}
